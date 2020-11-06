@@ -8,16 +8,22 @@ public class RocketMovementRotation : MonoBehaviour
     bool activeRot = false;
     public Rigidbody rb;
 
+    public int horiz = 50;
+    public int liluzivert = 50;
+
+    bool once = true;
+
     void Start()
     {
 
     }
-    void Update()
+    void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && once)
         {
-            rb.AddForce(new Vector3(10, 100, 0), ForceMode.Impulse);
+            rb.AddForce(new Vector3(horiz, liluzivert, 0), ForceMode.Impulse);
             activeRot = true;
+            once = false;
         }
 
         if (activeRot)
